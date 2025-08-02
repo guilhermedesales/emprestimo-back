@@ -1,0 +1,245 @@
+/* RESET GERAL */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: #f0f2f5;
+  margin: 0;
+  padding: 1rem;
+  color: #333;
+}
+
+/* TÍTULOS */
+h1, h2 {
+  text-align: center;
+  color: #333;
+  margin-bottom: 1rem;
+}
+
+/* CONTAINER CENTRAL (se usar futuramente) */
+.container {
+  max-width: 500px;
+  margin: auto;
+  background: #fff;
+  padding: 2rem;
+  border-radius: 16px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s ease;
+}
+
+.container:hover {
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+}
+
+/* INPUTS */
+input {
+  width: 100%;
+  padding: 0.7rem;
+  margin-top: 0.5rem;
+  margin-bottom: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 15px;
+  box-sizing: border-box;
+  transition: border 0.2s;
+}
+
+input:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
+/* BOTÕES */
+button {
+  width: 100%;
+  padding: 0.75rem;
+  background-color: #007bff;
+  color: white;
+  font-weight: bold;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+  margin-top: 0.5rem;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+/* TABS */
+.tabs {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1rem;
+  gap: 10px;
+}
+
+.tab-button {
+  padding: 10px 20px;
+  border: none;
+  background-color: #eee;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s;
+}
+
+.tab-button.active {
+  background-color: #007bff;
+  color: white;
+}
+
+/* TABELAS */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+  font-size: 14px;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+th, td {
+  padding: 0.75rem;
+  border: 1px solid #ddd;
+  text-align: center;
+}
+
+thead {
+  background-color: #007bff;
+  color: white;
+}
+
+tbody tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+tbody tr:hover {
+  background-color: #f1f1f1;
+}
+
+/* CONTEÚDO DAS ABAS */
+.tab-content {
+  max-width: 700px;
+  margin: auto;
+  background-color: white;
+  padding: 1.5rem;
+  border-radius: 16px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.tab-button.transferencias {
+  background-color: #007bff;
+  color: white;
+}
+
+.tab-button.parcelas {
+  background-color: #007bff;
+  color: white;
+}
+
+.tab-button:not(.active) {
+  background-color: #516c80;
+  opacity: 0.4;
+}
+
+
+/* WHATSAPP */
+#whatsapp-container {
+  text-align: center;
+  margin-top: 1rem;
+}
+
+/* PARÁGRAFOS DE TOTAL */
+#total, #total-pago, #comparativo {
+  margin-top: 1rem;
+  font-weight: bold;
+
+}
+
+/* RESPONSIVO */
+@media (max-width: 600px) {
+  .tab-content {
+    padding: 1rem;
+  }
+
+  table, thead, tbody, th, td, tr {
+    font-size: 13px;
+  }
+
+  button {
+    font-size: 14px;
+  }
+}
+
+label[for="filtro-ano"] {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 0.4rem;
+  color: #333;
+  font-size: 16px;
+}
+
+#filtro-ano {
+  width: 100%;
+  max-width: 200px;
+  padding: 0.5rem 0.8rem;
+  font-size: 15px;
+  border: 1.5px solid #ccc;
+  border-radius: 8px;
+  background-color: white;
+  color: #333;
+  cursor: pointer;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  box-sizing: border-box;
+  margin-bottom: 1rem;
+}
+
+#filtro-ano:hover,
+#filtro-ano:focus {
+  border-color: #007bff;
+  outline: none;
+  box-shadow: 0 0 6px rgba(0, 123, 255, 0.5);
+}
+
+#btn-exibir-tudo {
+  max-width: 200px;
+  padding: 0.6rem 1.2rem;
+  font-size: 16px;
+  font-weight: 700;
+  color: white;
+  background-color: #007bff;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  display: inline-block;
+}
+
+#btn-exibir-tudo:hover,
+#btn-exibir-tudo:focus {
+  background-color: #0056b3;
+  box-shadow: 0 0 10px rgba(0, 86, 179, 0.7);
+  outline: none;
+}
+
+
+.filtro-container {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1rem;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+}
+
+@media (max-width: 400px) {
+  .filtro-container {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  #filtro-ano,
+  #btn-exibir-tudo {
+    max-width: 100%;
+  }
+}

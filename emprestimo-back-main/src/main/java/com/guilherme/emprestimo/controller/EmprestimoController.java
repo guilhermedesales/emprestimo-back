@@ -25,9 +25,8 @@ public class EmprestimoController {
     }
 
     @GetMapping("/total")
-    public Double obterTotal() {
+    public double obterTotal(){
         return emprestimoService.calcularTotal();
     }
-
 
 }
