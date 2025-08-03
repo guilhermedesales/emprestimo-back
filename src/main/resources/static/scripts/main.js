@@ -36,4 +36,6 @@ document.addEventListener('DOMContentLoaded', () => {
     carregarEmprestimos(tbody, totalSpan);
   });
 
+
+
 });

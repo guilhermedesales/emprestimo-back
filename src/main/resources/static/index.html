@@ -5,7 +5,91 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Empréstimo Casa</title>
+    <link rel="icon" href="/favicon.png" type="image/png" />
     <link rel="stylesheet" href="style.css" />
+    <style>
+
+        #modal-edicao {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.2);
+  padding: 30px;
+  z-index: 1000;
+  width: 90%;
+  max-width: 400px;
+  font-family: 'Segoe UI', sans-serif;
+  transition: all 0.3s ease;
+}
+
+#modal-edicao h3 {
+  margin-top: 0;
+  font-size: 1.3em;
+  color: #333;
+}
+
+#modal-edicao label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: bold;
+  color: #555;
+}
+
+#modal-edicao input,
+#modal-edicao select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  margin-bottom: 16px;
+  font-size: 1em;
+  box-sizing: border-box;
+}
+
+#modal-edicao button {
+  padding: 10px 16px;
+  font-size: 1em;
+  margin-right: 10px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+#btn-salvar-edicao {
+  background-color: #4CAF50;
+  color: white;
+}
+
+#btn-salvar-edicao:hover {
+  background-color: #45a049;
+}
+
+#modal-edicao button:last-of-type {
+  background-color: #ccc;
+  color: #333;
+}
+
+#modal-edicao button:last-of-type:hover {
+  background-color: #bbb;
+}
+
+#overlay {
+      display: none;
+      position: fixed;
+      top: 0; left: 0;
+      width: 100vw;
+      height: 100vh;
+      background-color: rgba(0, 0, 0, 0.4);
+      z-index: 1000;
+    }
+
+    </style>
+
 </head>
 
 <body>
@@ -29,13 +113,33 @@
         <button type="submit" id="salvar">Salvar</button>
     </form>
 
+    <button id="btn-abrir-edicao">Editar um Registro</button>
+
     <button id="ver-registros">Ver Registros</button>
+
+    <div id="overlay" onclick="fecharModal()"></div>
+
+    <div id="modal-edicao" style="display: none;">
+        <h3>Editar Transferência</h3>
+        <label for="emprestimo-select">Selecione:</label>
+        <select id="emprestimo-select"></select><br><br>
+
+        <label>Data:</label>
+        <input type="date" id="data-edicao"><br><br>
+
+        <label>Valor:</label>
+        <input type="number" id="valor-edicao" step="0.01"><br><br>
+
+        <button id="btn-salvar-edicao">Salvar</button>
+        <button onclick="fecharModal()">Cancelar</button>
+    </div>
+
 
     <button id="btn-whatsapp">Enviar no WhatsApp</button>
 
     <div id="whatsapp-container" style="display:none; margin-top:10px;">
         <label for="numero-wpp">Número WhatsApp:</label>
-        <input type="text" id="numero-wpp" placeholder="+5521XXXXXXXXX" />
+        <input type="text" id="numero-wpp" value="+5521" placeholder="+5521XXXXXXXXX" />
         <button id="enviar-wpp">Enviar</button>
     </div>
 
@@ -88,6 +192,7 @@
 <script type="module" src="scripts/main.js"></script>
 <script src="scripts/mostrarAba.js"></script>
 <script type="module" src="scripts/parcelas.js"></script>
+<script type="module" src="scripts/editar.js"></script>
 <script type="module" src="scripts/enviar-wpp.js"></script>
 
 

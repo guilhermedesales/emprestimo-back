@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class EmprestimoService {
@@ -35,6 +36,15 @@ public class EmprestimoService {
 
     }
 
+    public boolean atualizar(Long id, Emprestimo novo) {
+        Optional<Emprestimo> existente = emprestimoRepository.findById(id);
+        if (existente.isEmpty()) return false;
 
+        Emprestimo e = existente.get();
+        e.setData(novo.getData());
+        e.setValor(novo.getValor());
+        emprestimoRepository.save(e);
+        return true;
+    }
 
 }
